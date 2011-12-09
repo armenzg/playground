@@ -1,0 +1,37 @@
+[ui]
+username = Armen Zambrano Gasparnian <armenzg@mozilla.com>
+merge = diff
+
+[diff]
+git = 1
+showfunc=True
+
+[defaults]
+diff=-p -U 8 
+qdiff=-p -U 8 
+
+#[web]
+#config = /var/hg/hgweb.config
+
+[extensions]
+#trychooser = /Users/armenzg/repos/trychooser/trychooser
+hgext.graphlog = 
+hgext.mq =
+hgext.purge=
+color =
+pager =
+rebase =
+#qup = /Users/armenzg/moz/scripts/qup.py
+#qimportbz = /Users/armenzg/moz/repos/hgextensions/qimportbz
+
+[pager]
+pager = LESS='FSRX' less
+attend = log, help, diff, grep
+
+#[qimportbz]
+#bugzilla = $BUGZILLA if set else bugzilla.mozilla.org
+#patch_format = bug-%%(bugnum)s
+#msg_format = Bug %%(bugnum)s - "%%(title)s" [%%(flags)s]
+
+#[hooks]
+#precommit = hg status | (! grep '^?')

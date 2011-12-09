@@ -1,0 +1,1 @@
+wget -O- http://build.mozilla.org/builds/last-job-per-slave.txt 2>&1 | grep day | grep talos | sed 's|^.*\(t.*r.-.*-[0-9][0-9][0-9]\).*$|\1|' > slaves && for host in `cat slaves`; do ping -c 1 -t 1 $host > /dev/null; echo "$? $host"; done | sort
