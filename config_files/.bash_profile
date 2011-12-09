@@ -6,7 +6,7 @@ export PEOPLE='people.mozilla.com:~/public_html/incoming'
 export HECHOS13='jyouthon@youthontherock.com:www/hechos13/incoming'
 export OMID='jyouthon@youthontherock.com:www/resources/video/farsi/satellite'
 
-alias cx='csshX --login cltbld --config ~/moz/configs/csshX_config'
+alias cx='csshX --login cltbld --config ~/.csshX_config'
 alias autoconf='autoconf-2.13'
 alias wget="wget --no-check-certificate"
 alias manage="cd ~/repos/tools; hg pull -u; \
