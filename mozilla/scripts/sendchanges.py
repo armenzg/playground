@@ -2,24 +2,28 @@
 import os
 
 GLOBAL_VARS = {
-    'ftp':         'http://ftp.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds/',
+    'ftp':         'http://stage.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds',
     'branch':      'mozilla-central',
     'master_port': 'dev-master01.build.mozilla.org:9041',
     'platform_vars': {
         'linux64': {
-            'arch': 'linux-x86_64',
+            'arch_ftp': 'linux-x86_64',
+            'arch_pkg': 'linux-x86_64',
             'ext': 'tar.bz2',
         },
         'linux': { 
-            'arch': 'linux-i686',
+            'arch_ftp': 'linux-i686',
+            'arch_pkg': 'linux-i686',
             'ext': 'tar.bz2',
         },
         'mac': { 
-            'arch': 'macosx64',
+            'arch_ftp': 'macosx64',
+            'arch_pkg': 'mac',
             'ext': 'dmg',
         },
         'win32': { 
-            'arch': 'win32',
+            'arch_ftp': 'win32',
+            'arch_pkg': 'win32',
             'ext': 'zip',
         }
     }
@@ -42,17 +46,17 @@ def sendchange(ftp, platform):
     # http://stage.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds/mozilla-central-linux64/1323725238/firefox-11.0a1.en-US.linux-x86_64.tests.zip
     for jobType in ('talos','opt',):
         # XXX: 'base' would fail for debug builds
-        base = '%s/%s-%s/%s/firefox-%s.en-US' % (ftp, GLOBAL_VARS["branch"], platform, \
+        base = '%s/%s-%s/%s/firefox-%s.en-US' % (ftp, GLOBAL_VARS["branch"], pf_info(platform, 'arch_ftp'), \
                                                  timestamp(platform), current_version())
-        downloadables = ['%s.%s' % \
-                        (base, pf_info(platform, 'ext'))] 
+        downloadables = ['%s.%s.%s' % \
+                        (base, pf_info(platform, 'arch_pkg'), pf_info(platform, 'ext'))] 
         if jobType == "talos":
             branch = 'mozilla-central-%s-talos' % platform
             username = 'sendchange'
         elif jobType == "opt":
             branch = 'mozilla-central-%s-opt-unittest' % platform
             downloadables += [' %s.%s.tests.zip' % \
-                             (base, platform)] 
+                             (base, pf_info(platform, 'arch_pkg'))] 
             username = 'sendchange-unittest'
 
         sendchange = "buildbot sendchange " \
