@@ -7,7 +7,7 @@ GLOBAL_VARS = {
     'master_port': 'dev-master01.build.mozilla.org:9041',
     'platform_vars': {
         'linux64': {
-            'arch_ftp': 'linux',
+            'arch_ftp': 'linux64',
             'arch_pkg': 'linux-x86_64',
             'ext': 'tar.bz2',
         },
