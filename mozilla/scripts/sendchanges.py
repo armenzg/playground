@@ -7,12 +7,12 @@ GLOBAL_VARS = {
     'master_port': 'dev-master01.build.mozilla.org:9041',
     'platform_vars': {
         'linux64': {
-            'arch_ftp': 'linux-x86_64',
+            'arch_ftp': 'linux',
             'arch_pkg': 'linux-x86_64',
             'ext': 'tar.bz2',
         },
         'linux': { 
-            'arch_ftp': 'linux-i686',
+            'arch_ftp': 'linux',
             'arch_pkg': 'linux-i686',
             'ext': 'tar.bz2',
         },
@@ -77,13 +77,13 @@ def current_version():
 def timestamp(platform):
     # Yes, I'm cheating
     if platform == "linux":
-        return "1323786259"
+        return "1324059675"
     elif platform == "linux64":
-        return "1323787701"
+        return "1324046895"
     elif platform == "mac":
-        return "1323784939"
+        return "1324046895"
     elif platform == "win32":
-        return "1323785718"
+        return "1324046895"
 
 def pf_info(platform, key):
     return GLOBAL_VARS['platform_vars'][platform][key]

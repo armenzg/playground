@@ -9,6 +9,7 @@ showfunc=True
 [defaults]
 diff=-p -U 8 
 qdiff=-p -U 8 
+qnew=-U
 
 #[web]
 #config = /var/hg/hgweb.config

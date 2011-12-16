@@ -1,10 +1,11 @@
 . ~/.profile
 export PATH=~/moz/scripts:/usr/local/mysql/bin:$PATH
 
-#export PYTHONPATH=$PYTHONPATH:~/repos/tools/lib/python:~/repos
+export PYTHONPATH=$PYTHONPATH:~/repos/tools/lib/python:~/repos
 export PEOPLE='people.mozilla.com:~/public_html/incoming'
 export HECHOS13='jyouthon@youthontherock.com:www/hechos13/incoming'
 export OMID='jyouthon@youthontherock.com:www/resources/video/farsi/satellite'
+export DEV='dev-master01:~/patches'
 
 alias cx='csshX --login cltbld --config ~/.csshX_config'
 alias autoconf='autoconf-2.13'
