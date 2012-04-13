@@ -15,6 +15,7 @@ qnew=-U
 #config = /var/hg/hgweb.config
 
 [extensions]
+transplant=
 #trychooser = /Users/armenzg/repos/trychooser/trychooser
 hgext.graphlog = 
 hgext.mq =

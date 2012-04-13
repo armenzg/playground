@@ -1,89 +1,126 @@
 #! /usr/bin/env python
 import os
+import sys
+from optparse import OptionParser
+import httplib
+import urlparse
+
+def main():
+    parser = OptionParser()
+    #parser.add_option("--base-opt-url", dest="base_opt_url", type="string")
+    #parser.add_option("--base-debug-url", dest="base_debug_url", type="string")
+    #parser.add_option("-pf", "--platform", dest="platforms", type="string", action="append")
+    (options, args) = parser.parse_args()
+
+    for platform in ('linux', ):
+    #for platform in ('linux', 'linux64', 'win32', 'macosx64'):
+        for jobType in ('opt', ):
+            sendchange(platform, jobType)
+
+def timestamp(platform, jobType):
+    # Yes, I'm cheating
+    if platform == "linux":
+        return ("1330696599" if jobType == "debug" else "1334247632")
+    elif platform == "linux64":
+        return ("1330427462" if jobType == "debug" else "1334247632")
+    elif platform == "macosx64":
+        return ("1330696599" if jobType == "debug" else "1330696599")
+    elif platform == "win32":
+        return ("1333562842" if jobType == "debug" else "1333562842")
+    elif platform == "adnroid":
+        return ("" if jobType == "debug" else "1331649309")
+
+def current_version():
+    return '14.0a1'
 
 GLOBAL_VARS = {
-    'ftp':         'http://stage.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds',
-    'branch':      'mozilla-central',
+    'ftp':         'http://ftp.mozilla.org/pub/mozilla.org',
+    'branch':      'try',
     'master_port': 'dev-master01.build.mozilla.org:9041',
     'platform_vars': {
-        'linux64': {
-            'arch_ftp': 'linux64',
-            'arch_pkg': 'linux-x86_64',
-            'ext': 'tar.bz2',
-        },
-        'linux': { 
-            'arch_ftp': 'linux',
-            'arch_pkg': 'linux-i686',
-            'ext': 'tar.bz2',
-        },
-        'mac': { 
-            'arch_ftp': 'macosx64',
-            'arch_pkg': 'mac',
-            'ext': 'dmg',
-        },
-        'win32': { 
-            'arch_ftp': 'win32',
-            'arch_pkg': 'win32',
-            'ext': 'zip',
-        }
+        'linux64':  { 'arch_ftp': 'linux64',  'arch_pkg': 'linux-x86_64', 'ext': 'tar.bz2', },
+        'linux':    { 'arch_ftp': 'linux',    'arch_pkg': 'linux-i686',   'ext': 'tar.bz2', },
+        'macosx':   { 'arch_ftp': 'macosx32', 'arch_pkg': 'mac',          'ext': 'dmg',     },
+        'macosx64': { 'arch_ftp': 'macosx64', 'arch_pkg': 'mac',          'ext': 'dmg',     },
+        'win32':    { 'arch_ftp': 'win32',    'arch_pkg': 'win32',        'ext': 'zip',     },
+        'android':  { 'arch_ftp': 'android',  'arch_pkg': 'android',      'ext': 'apk',     },
     }
 }
 
-def main():
-    for platform in ('linux', 'linux64', 'win32', 'mac'):
-        sendchange(GLOBAL_VARS['ftp'], platform)
+def sendchange_vars(jobType, platform):
+    if jobType == "talos":
+        scBranch = '%s-%s-talos' % (GLOBAL_VARS["branch"], platform)
+        username = 'sendchange'
+    elif jobType in ("opt", "debug",):
+        scBranch = '%s-%s-%s-unittest' % (GLOBAL_VARS["branch"], platform, jobType)
+        downloadables += ['%s.%s.tests.zip' % \
+                         (base, pf_info(platform, 'arch_pkg'))] 
+        username = 'sendchange-unittest'
 
-def sendchange(ftp, platform):
-    # buildbot sendchange --master buildbot-master10.build.mozilla.org:9301 --username sendchange
-    # --branch mozilla-central-linux64-talos --revision a05ecb395410 --comments 'blah blah'
-    # --property buildid:20111212132718 --property pgo_build:False --property builduid:3db61ecf7b8f43f980120baeeabbe97a
-    # http://stage.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds/mozilla-central-linux64/1323725238/firefox-11.0a1.en-US.linux-x86_64.tar.bz2
-    #
-    # buildbot sendchange --master buildbot-master10.build.mozilla.org:9301 --username sendchange-unittest 
-    # --branch mozilla-central-linux64-opt-unittest --revision a05ecb395410 --comments 'blah blah'
-    # --property buildid:20111212132718 --property pgo_build:False --property builduid:3db61ecf7b8f43f980120baeeabbe97a
-    # http://stage.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds/mozilla-central-linux64/1323725238/firefox-11.0a1.en-US.linux-x86_64.tar.bz2
-    # http://stage.mozilla.org/pub/mozilla.org/firefox/tinderbox-builds/mozilla-central-linux64/1323725238/firefox-11.0a1.en-US.linux-x86_64.tests.zip
-    for jobType in ('talos','opt',):
-        # XXX: 'base' would fail for debug builds
-        base = '%s/%s-%s/%s/firefox-%s.en-US' % (ftp, GLOBAL_VARS["branch"], pf_info(platform, 'arch_ftp'), \
-                                                 timestamp(platform), current_version())
-        downloadables = ['%s.%s.%s' % \
-                        (base, pf_info(platform, 'arch_pkg'), pf_info(platform, 'ext'))] 
-        if jobType == "talos":
-            branch = 'mozilla-central-%s-talos' % platform
-            username = 'sendchange'
-        elif jobType == "opt":
-            branch = 'mozilla-central-%s-opt-unittest' % platform
-            downloadables += [' %s.%s.tests.zip' % \
-                             (base, pf_info(platform, 'arch_pkg'))] 
-            username = 'sendchange-unittest'
+def sendchange(platform, jobType):
+    productFtp = "mobile" if platform=="android" else "firefox"
+    filename = "fennec-%s.en-US" if platform=="android" else "firefox-%s.en-US"
+    branch = GLOBAL_VARS["branch"]
+    if branch != "try":
+        # e.g. tinderbox-builds/$BRANCH-linux/1334247632
+        subdir = "tinderbox-builds/%s-%s/%s" % (branch, ftpLocation(platform, jobType), \
+                                                timestamp(platform, jobType))
+    else:
+        # e.g. try-builds/hurley@mozilla.com-1e3218bc291d/try-linux/ 
+        subdir = "try-builds/%s/try-%s" % ("hurley@mozilla.com-1e3218bc291d", \
+                                           ftpLocation(platform, jobType))
+    base = '%s/%s/%s/%s' % (GLOBAL_VARS["ftp"], productFtp, subdir, filename % current_version())
+    downloadables = ['%s.%s.%s' % \
+                    (base, pf_info(platform, 'arch_pkg'), pf_info(platform, 'ext'))] 
 
-        sendchange = "buildbot sendchange " \
-            "--master %(master_port)s " \
-            "--username %(username)s " \
-            "--branch %(branch)s " \
-            % {'master_port': GLOBAL_VARS['master_port'],
-               'branch':      branch, 
-               'username':    username,
-            }
-        for d in downloadables:
-            sendchange += d
-        os.system(sendchange)
+    scBranch, username = sendchange_vars(jobType, platform)
 
-def current_version():
-    return '11.0a1'
+    sendchange = "buildbot sendchange " \
+        "--master %(master_port)s " \
+        "--username %(username)s " \
+        "--branch %(branch)s " \
+        "--revision default " \
+        % {'master_port': GLOBAL_VARS['master_port'],
+           'branch':      scBranch, 
+           'username':    username,
+        }
+    for d in downloadables:
+        if not check_url(d):
+            print "You are trying to download a file that does not exist: %s" % d
+            sys.exit(1)
+        sendchange += " %s" % d
+    #os.system(sendchange)
+    print sendchange
 
-def timestamp(platform):
-    # Yes, I'm cheating
-    if platform == "linux":
-        return "1324059675"
-    elif platform == "linux64":
-        return "1324046895"
-    elif platform == "mac":
-        return "1324046895"
-    elif platform == "win32":
-        return "1324046895"
+# https://pythonadventures.wordpress.com/2010/10/17/check-if-url-exists/
+def get_server_status_code(url):
+    """
+    Download just the header of a URL and
+    return the server's status code.
+    """
+    # http://stackoverflow.com/questions/1140661
+    host, path = urlparse.urlparse(url)[1:3]    # elems [1] and [2]
+    try:
+        conn = httplib.HTTPConnection(host)
+        conn.request('HEAD', path)
+        return conn.getresponse().status
+    except StandardError:
+        return None
+
+def check_url(url):
+    """
+    Check if a URL exists without downloading the whole file.
+    We only check the URL header.
+    """
+    # see also http://stackoverflow.com/questions/2924422
+    good_codes = [httplib.OK, httplib.FOUND, httplib.MOVED_PERMANENTLY]
+    return get_server_status_code(url) in good_codes
+
+def ftpLocation(platform, jobType):
+    if jobType == "debug":
+        return pf_info(platform, 'arch_ftp') + "-debug"
+    else:
+        return pf_info(platform, 'arch_ftp')
 
 def pf_info(platform, key):
     return GLOBAL_VARS['platform_vars'][platform][key]
