@@ -7,55 +7,39 @@ import urlparse
 
 def main():
     parser = OptionParser()
-    #parser.add_option("--base-opt-url", dest="base_opt_url", type="string")
-    #parser.add_option("--base-debug-url", dest="base_debug_url", type="string")
-    #parser.add_option("-pf", "--platform", dest="platforms", type="string", action="append")
     (options, args) = parser.parse_args()
 
-    for platform in ('linux', ):
     #for platform in ('linux', 'linux64', 'win32', 'macosx64'):
+    for platform in ('android',):
         for jobType in ('opt', ):
             sendchange(platform, jobType)
 
 def timestamp(platform, jobType):
     # Yes, I'm cheating
-    if platform == "linux":
-        return ("1330696599" if jobType == "debug" else "1334247632")
-    elif platform == "linux64":
-        return ("1330427462" if jobType == "debug" else "1334247632")
-    elif platform == "macosx64":
-        return ("1330696599" if jobType == "debug" else "1330696599")
-    elif platform == "win32":
-        return ("1333562842" if jobType == "debug" else "1333562842")
-    elif platform == "adnroid":
-        return ("" if jobType == "debug" else "1331649309")
+    if   platform == "linux"     return ("1330696599" if jobType == "debug" else "1334247632")
+    elif platform == "linux64":  return ("1330427462" if jobType == "debug" else "1334247632")
+    elif platform == "macosx64": return ("1330696599" if jobType == "debug" else "1335828641")
+    elif platform == "win32":    return ("1333562842" if jobType == "debug" else "1333562842")
+    elif platform == "android":  return ("1336496006" if jobType == "debug" else "1336496006")
 
 def current_version():
-    return '14.0a1'
+    return '15.0a1'
 
 GLOBAL_VARS = {
-    'ftp':         'http://ftp.mozilla.org/pub/mozilla.org',
-    'branch':      'try',
-    'master_port': 'dev-master01.build.mozilla.org:9041',
+    'ftp':    'http://ftp.mozilla.org/pub/mozilla.org',
+    'branch': 'mozilla-central',
+    'master': 'dev-master01.build.mozilla.org',
+    'port1' : 9041, # for other platforms
+    'port2' : 9043, # for android testing
     'platform_vars': {
         'linux64':  { 'arch_ftp': 'linux64',  'arch_pkg': 'linux-x86_64', 'ext': 'tar.bz2', },
         'linux':    { 'arch_ftp': 'linux',    'arch_pkg': 'linux-i686',   'ext': 'tar.bz2', },
         'macosx':   { 'arch_ftp': 'macosx32', 'arch_pkg': 'mac',          'ext': 'dmg',     },
         'macosx64': { 'arch_ftp': 'macosx64', 'arch_pkg': 'mac',          'ext': 'dmg',     },
         'win32':    { 'arch_ftp': 'win32',    'arch_pkg': 'win32',        'ext': 'zip',     },
-        'android':  { 'arch_ftp': 'android',  'arch_pkg': 'android',      'ext': 'apk',     },
+        'android':  { 'arch_ftp': 'android',  'arch_pkg': 'android-arm',  'ext': 'apk',     },
     }
 }
-
-def sendchange_vars(jobType, platform):
-    if jobType == "talos":
-        scBranch = '%s-%s-talos' % (GLOBAL_VARS["branch"], platform)
-        username = 'sendchange'
-    elif jobType in ("opt", "debug",):
-        scBranch = '%s-%s-%s-unittest' % (GLOBAL_VARS["branch"], platform, jobType)
-        downloadables += ['%s.%s.tests.zip' % \
-                         (base, pf_info(platform, 'arch_pkg'))] 
-        username = 'sendchange-unittest'
 
 def sendchange(platform, jobType):
     productFtp = "mobile" if platform=="android" else "firefox"
@@ -73,23 +57,31 @@ def sendchange(platform, jobType):
     downloadables = ['%s.%s.%s' % \
                     (base, pf_info(platform, 'arch_pkg'), pf_info(platform, 'ext'))] 
 
-    scBranch, username = sendchange_vars(jobType, platform)
+    if jobType == "talos":
+        scBranch = '%s-%s-talos' % (GLOBAL_VARS["branch"], platform)
+        username = 'sendchange'
+    elif jobType in ("opt", "debug",):
+        scBranch = '%s-%s-%s-unittest' % (GLOBAL_VARS["branch"], platform, jobType)
+        downloadables += ['%s.%s.tests.zip' % \
+                         (base, pf_info(platform, 'arch_pkg'))] 
+        username = 'sendchange-unittest'
 
     sendchange = "buildbot sendchange " \
-        "--master %(master_port)s " \
+        "--master %(master)s:%(port)s " \
         "--username %(username)s " \
         "--branch %(branch)s " \
         "--revision default " \
-        % {'master_port': GLOBAL_VARS['master_port'],
-           'branch':      scBranch, 
-           'username':    username,
+        % {'master':   GLOBAL_VARS['master'],
+           'port':     GLOBAL_VARS["port1"] if platform != "android" else GLOBAL_VARS["port2"],
+           'branch':   scBranch, 
+           'username': username,
         }
     for d in downloadables:
         if not check_url(d):
             print "You are trying to download a file that does not exist: %s" % d
             sys.exit(1)
         sendchange += " %s" % d
-    #os.system(sendchange)
+    os.system(sendchange)
     print sendchange
 
 # https://pythonadventures.wordpress.com/2010/10/17/check-if-url-exists/
