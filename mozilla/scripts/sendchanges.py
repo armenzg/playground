@@ -10,20 +10,20 @@ def main():
     (options, args) = parser.parse_args()
 
     #for platform in ('linux', 'linux64', 'win32', 'macosx64'):
-    for platform in ('android',):
-        for jobType in ('opt', ):
+    for platform in ('win32',):
+        for jobType in ('talos', 'opt', 'debug',):
             sendchange(platform, jobType)
 
 def timestamp(platform, jobType):
     # Yes, I'm cheating
-    if   platform == "linux"     return ("1330696599" if jobType == "debug" else "1334247632")
-    elif platform == "linux64":  return ("1330427462" if jobType == "debug" else "1334247632")
+    if   platform == "linux":    return ("1330696599" if jobType == "debug" else "1334247632")
+    elif platform == "linux64":  return ("1330427462" if jobType == "debug" else "1338567902")
     elif platform == "macosx64": return ("1330696599" if jobType == "debug" else "1335828641")
-    elif platform == "win32":    return ("1333562842" if jobType == "debug" else "1333562842")
+    elif platform == "win32":    return ("1346387570" if jobType == "debug" else "1346387570")
     elif platform == "android":  return ("1336496006" if jobType == "debug" else "1336496006")
 
 def current_version():
-    return '15.0a1'
+    return '18.0a1'
 
 GLOBAL_VARS = {
     'ftp':    'http://ftp.mozilla.org/pub/mozilla.org',
