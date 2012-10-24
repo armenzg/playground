@@ -1,5 +1,5 @@
 . ~/.profile
-export PATH=~/moz/scripts:/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/share/python:~/moz/scripts:/usr/local/mysql/bin:/usr/local/bin:$PATH
 
 export PYTHONPATH=$PYTHONPATH:~/repos/tools/lib/python:~/repos
 export PEOPLE='people.mozilla.com:~/public_html/incoming'
