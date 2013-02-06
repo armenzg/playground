@@ -9,27 +9,27 @@ def main():
     parser = OptionParser()
     (options, args) = parser.parse_args()
 
-    #for platform in ('linux', 'linux64', 'win32', 'macosx64'):
+    #for platform in ('linux', 'win32', 'macosx64'):
     for platform in ('win32',):
-        for jobType in ('talos', 'opt', ):
+        for jobType in ('opt', ):
             sendchange(platform, jobType)
 
 def timestamp(platform, jobType):
     # Yes, I'm cheating
-    if   platform == "linux":    return ("1330696599" if jobType == "debug" else "1334247632")
+    if   platform == "linux":    return ("1330696599" if jobType == "debug" else "1359671260")
     elif platform == "linux64":  return ("1330427462" if jobType == "debug" else "1338567902")
-    elif platform == "macosx64": return ("1330696599" if jobType == "debug" else "1335828641")
-    elif platform == "win32":    return ("1346387570" if jobType == "debug" else "1351034355")
+    elif platform == "macosx64": return ("1330696599" if jobType == "debug" else "1359671260")
+    elif platform == "win32":    return ("1360164766" if jobType == "debug" else "1360164766")
     elif platform == "android":  return ("1336496006" if jobType == "debug" else "1336496006")
 
 def current_version():
-    return '19.0a1'
+    return '21.0a1'
 
 GLOBAL_VARS = {
     'ftp':    'http://ftp.mozilla.org/pub/mozilla.org',
-    'branch': 'mozilla-central',
+    'branch': 'cedar',
     'master': 'dev-master01.build.mozilla.org',
-    'port1' : 9041, # for other platforms
+    'port1' : 9042, # for other platforms
     'port2' : 9043, # for android testing
     'platform_vars': {
         'linux64':  { 'arch_ftp': 'linux64',  'arch_pkg': 'linux-x86_64', 'ext': 'tar.bz2', },
@@ -50,12 +50,12 @@ def sendchange(platform, jobType):
         subdir = "tinderbox-builds/%s-%s/%s" % (branch, ftpLocation(platform, jobType), \
                                                 timestamp(platform, jobType))
     else:
-        # e.g. try-builds/hurley@mozilla.com-1e3218bc291d/try-linux/ 
+        # e.g. try-builds/hurley@mozilla.com-1e3218bc291d/try-linux/
         subdir = "try-builds/%s/try-%s" % ("hurley@mozilla.com-1e3218bc291d", \
                                            ftpLocation(platform, jobType))
     base = '%s/%s/%s/%s' % (GLOBAL_VARS["ftp"], productFtp, subdir, filename % current_version())
     downloadables = ['%s.%s.%s' % \
-                    (base, pf_info(platform, 'arch_pkg'), pf_info(platform, 'ext'))] 
+                    (base, pf_info(platform, 'arch_pkg'), pf_info(platform, 'ext'))]
 
     if jobType == "talos":
         scBranch = '%s-%s-talos' % (GLOBAL_VARS["branch"], platform)
@@ -73,7 +73,7 @@ def sendchange(platform, jobType):
         "--revision default " \
         % {'master':   GLOBAL_VARS['master'],
            'port':     GLOBAL_VARS["port1"] if platform != "android" else GLOBAL_VARS["port2"],
-           'branch':   scBranch, 
+           'branch':   scBranch,
            'username': username,
         }
     for d in downloadables:

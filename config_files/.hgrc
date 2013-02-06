@@ -23,6 +23,7 @@ hgext.purge=
 color =
 pager =
 rebase =
+share =
 #qup = /Users/armenzg/moz/scripts/qup.py
 #qimportbz = /Users/armenzg/moz/repos/hgextensions/qimportbz
 

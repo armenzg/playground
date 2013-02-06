@@ -6,6 +6,8 @@ export PEOPLE='people.mozilla.com:~/public_html/incoming'
 export HECHOS13='jyouthon@youthontherock.com:www/hechos13/incoming'
 export OMID='jyouthon@youthontherock.com:www/resources/video/farsi/satellite'
 export DEV='dev-master01:~/moz/patches'
+export SDK_HOME=$HOME/moz/sdks/android-sdk-macosx
+export PATH=$SDK_HOME/platform-tools:$PATH
 
 alias cx='csshX --login cltbld --config ~/.csshX_config'
 alias autoconf='autoconf-2.13'
@@ -20,7 +22,8 @@ alias grep='grep -E'
 #alias dump_master='~/repos/releng/braindump/buildbot-related/dump_master.py'
 #alias dump_masters='~/repos/releng/braindump/buildbot-related/dump_masters.sh'
 #export PS1="\u-laptop $ "
-#export WORKON_HOME=$HOME/.virtualenvs
-#export VIRTUALENVWRAPPER_PYTHON=$HOME/.venv/bin/python
-#source $HOME/.venv/bin/virtualenvwrapper.sh
 #export PATH=~/moz/scripts:~/repos/releng/braindump/buildbot-related:/usr/local/mysql/bin:$PATH
+export WORKON_HOME=$HOME/.virtualenvs
+VIRTUALENVWRAPPER_PYTHON=$HOME/venv/bin/python
+source $HOME/venv/bin/virtualenvwrapper.sh
+export PATH=$HOME/venv/virtualenv-1.8.4/scripts:$PATH
