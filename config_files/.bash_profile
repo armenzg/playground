@@ -8,6 +8,7 @@ export OMID='jyouthon@youthontherock.com:www/resources/video/farsi/satellite'
 export DEV='dev-master01:~/moz/patches'
 export SDK_HOME=$HOME/moz/sdks/android-sdk-macosx
 export PATH=$SDK_HOME/platform-tools:$PATH
+export PROMPT_COMMAND='history -a; history -r'
 
 alias cx='csshX --login cltbld --config ~/.csshX_config'
 alias autoconf='autoconf-2.13'

@@ -10,29 +10,30 @@ def main():
     (options, args) = parser.parse_args()
 
     #for platform in ('linux', 'linux64', 'win32', 'macosx64'):
-    for platform in ('win32',):
-        for jobType in ('talos', ):
+    for platform in ('win32', ):
+    #for platform in ('android', ):
+        for jobType in ('opt', 'talos', 'debug',):
             sendchange(platform, jobType)
 
 def timestamp(platform, jobType):
     # Yes, I'm cheating
-    if   platform == "linux":    return ("1360768805" if jobType == "debug" else "1360768805")
-    elif platform == "linux64":  return ("1360768805" if jobType == "debug" else "1360779701")
+    if   platform == "linux":    return ("1370966894" if jobType == "debug" else "1370966894")
+    elif platform == "linux64":  return ("1382722895" if jobType == "debug" else "1382726083")
     elif platform == "macosx64": return ("1360768805" if jobType == "debug" else "1360779701")
     # mozilla-central
     #elif platform == "win32":    return ("1364229324" if jobType == "debug" else "1364229324")
-    # cedar
-    elif platform == "win32":    return ("1368734448" if jobType == "debug" else "1368736852")
-    elif platform == "android":  return ("1336496006" if jobType == "debug" else "1336496006")
+    # mozilla-inbound
+    elif platform == "win32":    return ("1383309403" if jobType == "debug" else "1383309403")
+    elif platform == "android":  return ("1336496006" if jobType == "debug" else "1373988789")
 
 def current_version():
-    return '24.0a1'
+    return '28.0a1'
 
 GLOBAL_VARS = {
     'ftp':    'http://ftp.mozilla.org/pub/mozilla.org',
     'branch': 'mozilla-inbound',
     'master': 'dev-master01.build.mozilla.org',
-    'ports' : [9041,9042], # for other platforms
+    'ports' : [9042],
     'platform_vars': {
         'linux64':  { 'arch_ftp': 'linux64',  'arch_pkg': 'linux-x86_64', 'ext': 'tar.bz2', },
         'linux':    { 'arch_ftp': 'linux',    'arch_pkg': 'linux-i686',   'ext': 'tar.bz2', },
@@ -88,7 +89,7 @@ def sendchange(platform, jobType):
         sendchanges.append(s)
 
     for s in sendchanges:
-        #os.system(s)
+        os.system(s)
         print s
 
 # https://pythonadventures.wordpress.com/2010/10/17/check-if-url-exists/
