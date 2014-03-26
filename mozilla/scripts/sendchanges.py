@@ -10,30 +10,34 @@ def main():
     (options, args) = parser.parse_args()
 
     #for platform in ('linux', 'linux64', 'win32', 'macosx64'):
+    #for platform in ('linux64', ):
     for platform in ('win32', ):
-    #for platform in ('android', ):
         for jobType in ('opt', 'talos', 'debug',):
             sendchange(platform, jobType)
 
 def timestamp(platform, jobType):
     # Yes, I'm cheating
-    if   platform == "linux":    return ("1370966894" if jobType == "debug" else "1370966894")
-    elif platform == "linux64":  return ("1382722895" if jobType == "debug" else "1382726083")
+    if   platform == "linux":    return ("1370966894" if jobType == "debug" else "1391715302")
+    # mozilla-inbound
+    #elif platform == "linux64":  return ("1382722895" if jobType == "debug" else "1391715302")
+    # cedar
+    elif platform == "linux64":  return ("1391440663" if jobType == "debug" else "1391440663")
     elif platform == "macosx64": return ("1360768805" if jobType == "debug" else "1360779701")
     # mozilla-central
-    #elif platform == "win32":    return ("1364229324" if jobType == "debug" else "1364229324")
+    elif platform == "win32":    return ("1395803017" if jobType == "debug" else "1395828123")
     # mozilla-inbound
-    elif platform == "win32":    return ("1383309403" if jobType == "debug" else "1383309403")
+    #elif platform == "win32":    return ("1391019142" if jobType == "debug" else "1390929812")
     elif platform == "android":  return ("1336496006" if jobType == "debug" else "1373988789")
 
 def current_version():
-    return '28.0a1'
+    return '31.0a1'
 
 GLOBAL_VARS = {
     'ftp':    'http://ftp.mozilla.org/pub/mozilla.org',
-    'branch': 'mozilla-inbound',
-    'master': 'dev-master01.build.mozilla.org',
-    'ports' : [9042],
+    #'branch': 'mozilla-inbound',
+    'branch': 'mozilla-central',
+    'master': 'dev-master1.build.mozilla.org',
+    'ports' : [9041],
     'platform_vars': {
         'linux64':  { 'arch_ftp': 'linux64',  'arch_pkg': 'linux-x86_64', 'ext': 'tar.bz2', },
         'linux':    { 'arch_ftp': 'linux',    'arch_pkg': 'linux-i686',   'ext': 'tar.bz2', },

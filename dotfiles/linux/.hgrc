@@ -1,0 +1,28 @@
+[ui]
+username = Armen Zambrano Gasparnian <armenzg@mozilla.com>
+merge = diff
+
+[diff]
+git = 1
+unified = 8
+showfunc=True
+
+[defaults]
+diff=-p -U 8 
+qdiff=-p -U 8 
+qnew=-U
+
+[extensions]
+mq =
+transplant=
+hgext.graphlog = 
+hgext.mq =
+hgext.purge=
+color =
+pager =
+rebase =
+share =
+
+[pager]
+pager = LESS='FSRX' less
+attend = log, help, diff, grep
