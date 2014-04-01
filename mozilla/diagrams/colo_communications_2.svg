@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="800"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="colo_communications_1.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path3940"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3943"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.89125"
+     inkscape:cx="393.99501"
+     inkscape:cy="400"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1427"
+     inkscape:window-height="871"
+     inkscape:window-x="193"
+     inkscape:window-y="114"
+     inkscape:window-maximized="0"
+     inkscape:snap-global="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-252.36218)">
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.5;fill:#ffccaa;stroke:#000000"
+       id="path3851-2"
+       sodipodi:cx="313.60449"
+       sodipodi:cy="450.49088"
+       sodipodi:rx="157.64375"
+       sodipodi:ry="157.64375"
+       d="m 471.24825,450.49088 a 157.64375,157.64375 0 1 1 -315.28751,0 157.64375,157.64375 0 1 1 315.28751,0 z"
+       transform="translate(272.08975,-6.2633419)" />
+    <g
+       id="g3876"
+       transform="translate(94.249649,56.100982)">
+      <path
+         transform="translate(435.34362,249.55713)"
+         d="m 149.22861,180.64516 c 0,22.30827 -41.19232,40.3927 -92.00561,40.3927 -50.8132944,0 -92.005608,-18.08443 -92.005608,-40.3927 0,-22.30828 41.1923136,-40.39271 92.005608,-40.39271 50.81329,0 92.00561,18.08443 92.00561,40.39271 z"
+         sodipodi:ry="40.392708"
+         sodipodi:rx="92.005608"
+         sodipodi:cy="180.64516"
+         sodipodi:cx="57.223"
+         id="path3800-0"
+         style="fill:#ffccaa;stroke:#000000"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3802-1"
+         y="414.49405"
+         x="492.79504"
+         style="font-size:20px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="414.49405"
+           x="492.79504"
+           id="tspan3804-3"
+           sodipodi:role="line">In-house</tspan><tspan
+           id="tspan3847"
+           y="439.49405"
+           x="492.79504"
+           sodipodi:role="line"> buildbot</tspan><tspan
+           id="tspan3806-1"
+           y="464.49405"
+           x="492.79504"
+           sodipodi:role="line">slaves</tspan></text>
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.5;fill:#ffccaa;stroke:#000000"
+       id="path3851"
+       sodipodi:cx="313.60449"
+       sodipodi:cy="450.49088"
+       sodipodi:rx="157.64375"
+       sodipodi:ry="157.64375"
+       d="m 471.24825,450.49088 a 157.64375,157.64375 0 1 1 -315.28751,0 157.64375,157.64375 0 1 1 315.28751,0 z"
+       transform="translate(-130.15428,-22.532631)" />
+    <g
+       id="g3859"
+       transform="translate(49.368865,49.368861)">
+      <rect
+         y="286.02277"
+         x="58.34502"
+         height="67.321175"
+         width="143.61852"
+         id="rect3792"
+         style="fill:#ffccaa;stroke:#000000" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text3794"
+         y="318.56134"
+         x="131.1385"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle"
+           y="318.56134"
+           x="131.1385"
+           id="tspan3796"
+           sodipodi:role="line">EC2 buildbot</tspan><tspan
+           id="tspan3798"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle"
+           y="338.56134"
+           x="131.1385"
+           sodipodi:role="line">masters</tspan></text>
+    </g>
+    <g
+       id="g3914">
+      <path
+         transform="translate(124.54418,303.97508)"
+         d="m 149.22861,180.64516 a 92.005608,40.392708 0 1 1 -184.011218,0 92.005608,40.392708 0 1 1 184.011218,0 z"
+         sodipodi:ry="40.392708"
+         sodipodi:rx="92.005608"
+         sodipodi:cy="180.64516"
+         sodipodi:cx="57.223"
+         id="path3800"
+         style="fill:#ffccaa;stroke:#000000"
+         sodipodi:type="arc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3802"
+         y="479.01013"
+         x="180.87358"
+         style="font-size:20px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="479.01013"
+           x="180.87358"
+           id="tspan3804"
+           sodipodi:role="line">EC2 buildbot</tspan><tspan
+           id="tspan3806"
+           y="504.01013"
+           x="180.87358"
+           sodipodi:role="line">slaves</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
+       d="m 180.17675,150.35062 0.80613,41.51617"
+       id="path3922"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#g3859"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g3914"
+       inkscape:connection-end-point="d4"
+       transform="translate(0,252.36218)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
+       d="m 251.3324,137.3624 258.53552,74.42689"
+       id="path3924"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-end="#g3876"
+       inkscape:connection-end-point="d4"
+       transform="translate(0,252.36218)"
+       inkscape:connection-start="#g3859"
+       inkscape:connection-start-point="d4" />
+  </g>
+</svg>
