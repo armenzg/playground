@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="colo_communications_1.svg">
+   sodipodi:docname="colo_communications_2.svg"
+   inkscape:export-filename="C:\Users\Mozilla\repos\playground\mozilla\diagrams\images\colo_communications_2.png"
+   inkscape:export-xdpi="122.50473"
+   inkscape:export-ydpi="122.50473">
   <defs
      id="defs4">
     <marker
@@ -52,16 +55,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.89125"
-     inkscape:cx="393.99501"
+     inkscape:cx="196.77657"
      inkscape:cy="400"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1427"
-     inkscape:window-height="871"
-     inkscape:window-x="193"
-     inkscape:window-y="114"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      inkscape:snap-global="true" />
   <metadata
      id="metadata7">
@@ -88,11 +91,11 @@
        sodipodi:cy="450.49088"
        sodipodi:rx="157.64375"
        sodipodi:ry="157.64375"
-       d="m 471.24825,450.49088 a 157.64375,157.64375 0 1 1 -315.28751,0 157.64375,157.64375 0 1 1 315.28751,0 z"
-       transform="translate(272.08975,-6.2633419)" />
+       d="m 471.24825,450.49088 c 0,87.06424 -70.57952,157.64375 -157.64376,157.64375 -87.06424,0 -157.64375,-70.57951 -157.64375,-157.64375 0,-87.06425 70.57951,-157.64376 157.64375,-157.64376 87.06424,0 157.64376,70.57951 157.64376,157.64376 z"
+       transform="matrix(2.3432233,0,0,1.1225828,-335.9674,353.1005)" />
     <g
        id="g3876"
-       transform="translate(94.249649,56.100982)">
+       transform="translate(-308.55541,444.31977)">
       <path
          transform="translate(435.34362,249.55713)"
          d="m 149.22861,180.64516 c 0,22.30827 -41.19232,40.3927 -92.00561,40.3927 -50.8132944,0 -92.005608,-18.08443 -92.005608,-40.3927 0,-22.30828 41.1923136,-40.39271 92.005608,-40.39271 50.81329,0 92.00561,18.08443 92.00561,40.39271 z"
@@ -131,41 +134,42 @@
        sodipodi:cy="450.49088"
        sodipodi:rx="157.64375"
        sodipodi:ry="157.64375"
-       d="m 471.24825,450.49088 a 157.64375,157.64375 0 1 1 -315.28751,0 157.64375,157.64375 0 1 1 315.28751,0 z"
-       transform="translate(-130.15428,-22.532631)" />
+       d="m 471.24825,450.49088 c 0,87.06424 -70.57952,157.64375 -157.64376,157.64375 -87.06424,0 -157.64375,-70.57951 -157.64375,-157.64375 0,-87.06425 70.57951,-157.64376 157.64375,-157.64376 87.06424,0 157.64376,70.57951 157.64376,157.64376 z"
+       transform="matrix(2.3783674,0,0,1.0479864,-344.83609,-36.295927)" />
     <g
-       id="g3859"
-       transform="translate(49.368865,49.368861)">
+       id="g4292"
+       transform="translate(4.4880785,103.22581)">
       <rect
-         y="286.02277"
-         x="58.34502"
+         y="280.41266"
+         x="325.38568"
          height="67.321175"
          width="143.61852"
          id="rect3792"
-         style="fill:#ffccaa;stroke:#000000" />
+         style="opacity:0.8;fill:#ff6600;stroke:#000000" />
       <text
          sodipodi:linespacing="100%"
          id="text3794"
-         y="318.56134"
-         x="131.1385"
+         y="312.95123"
+         x="398.17917"
          style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
          xml:space="preserve"><tspan
            style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle"
-           y="318.56134"
-           x="131.1385"
+           y="312.95123"
+           x="398.17917"
            id="tspan3796"
            sodipodi:role="line">EC2 buildbot</tspan><tspan
            id="tspan3798"
            style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle"
-           y="338.56134"
-           x="131.1385"
+           y="332.95123"
+           x="398.17917"
            sodipodi:role="line">masters</tspan></text>
     </g>
     <g
-       id="g3914">
+       id="g3914"
+       transform="translate(12.342217,-67.321179)">
       <path
          transform="translate(124.54418,303.97508)"
-         d="m 149.22861,180.64516 a 92.005608,40.392708 0 1 1 -184.011218,0 92.005608,40.392708 0 1 1 184.011218,0 z"
+         d="m 149.22861,180.64516 c 0,22.30827 -41.19232,40.3927 -92.00561,40.3927 -50.8132944,0 -92.005608,-18.08443 -92.005608,-40.3927 0,-22.30828 41.1923136,-40.39271 92.005608,-40.39271 50.81329,0 92.00561,18.08443 92.00561,40.39271 z"
          sodipodi:ry="40.392708"
          sodipodi:rx="92.005608"
          sodipodi:cy="180.64516"
@@ -189,27 +193,65 @@
            x="180.87358"
            sodipodi:role="line">slaves</tspan></text>
     </g>
+    <g
+       id="g4298"
+       transform="translate(2.2440393,-96.493689)">
+      <rect
+         y="937.95703"
+         x="315.32831"
+         height="67.239563"
+         width="168.22134"
+         id="rect3792-4"
+         style="fill:#ff6600;stroke:#000000;stroke-width:1.08161306" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text3794-7"
+         y="970.45477"
+         x="400.42322"
+         style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle"
+           y="970.45477"
+           x="400.42322"
+           id="tspan3796-2"
+           sodipodi:role="line">In-house buildbot</tspan><tspan
+           id="tspan3798-7"
+           style="font-size:20px;text-align:center;line-height:100%;text-anchor:middle"
+           y="990.45477"
+           x="400.42322"
+           sodipodi:role="line">masters</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="438.70969"
+       y="638.4292"
+       id="text3354"
+       sodipodi:linespacing="125%"
+       transform="translate(0,252.36218)"><tspan
+         sodipodi:role="line"
+         id="tspan3356" /></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
-       d="m 180.17675,150.35062 0.80613,41.51617"
-       id="path3922"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:8,8;stroke-dashoffset:0"
+       d="m 286.115,164.93688 43.75876,0"
+       id="path4304"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-start="#g3859"
+       inkscape:connection-start="#g3914"
        inkscape:connection-start-point="d4"
-       inkscape:connection-end="#g3914"
+       inkscape:connection-end="#g4292"
        inkscape:connection-end-point="d4"
        transform="translate(0,252.36218)" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
-       d="m 251.3324,137.3624 258.53552,74.42689"
-       id="path3924"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:8,8;stroke-dashoffset:0"
+       d="m 276.01526,622.39702 41.55709,0.10712"
+       id="path4306"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
-       inkscape:connection-end="#g3876"
+       inkscape:connection-start="#g3876"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#g4298"
        inkscape:connection-end-point="d4"
-       transform="translate(0,252.36218)"
-       inkscape:connection-start="#g3859"
-       inkscape:connection-start-point="d4" />
+       transform="translate(0,252.36218)" />
   </g>
 </svg>
