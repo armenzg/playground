@@ -24,18 +24,29 @@ def timestamp(platform, jobType):
     elif platform == "linux64":  return ("1391440663" if jobType == "debug" else "1391440663")
     elif platform == "macosx64": return ("1360768805" if jobType == "debug" else "1360779701")
     # mozilla-central
-    elif platform == "win32":    return ("1395803017" if jobType == "debug" else "1395828123")
-    # mozilla-inbound
-    #elif platform == "win32":    return ("1391019142" if jobType == "debug" else "1390929812")
+    #elif platform == "win32":    return ("1395803017" if jobType == "debug" else "1395828123")
+    # mozilla-aurora
+    elif platform == "win32":    return ("1396465593" if jobType == "debug" else "1396456715")
+    # mozilla-beta
+    #elif platform == "win32":    return ("1396027354" if jobType == "debug" else "1396027354")
+    # mozilla-release
+    #elif platform == "win32":    return ("1396087950" if jobType == "debug" else "1396087950")
     elif platform == "android":  return ("1336496006" if jobType == "debug" else "1373988789")
 
 def current_version():
-    return '31.0a1'
+    # mozilla-central
+    #return '31.0a1'
+    # mozilla-aurora
+    return '30.0a2'
+    # mozilla-beta
+    #return '29.0'
+    # mozilla-release
+    #return '28.0'
 
 GLOBAL_VARS = {
     'ftp':    'http://ftp.mozilla.org/pub/mozilla.org',
     #'branch': 'mozilla-inbound',
-    'branch': 'mozilla-central',
+    'branch': 'mozilla-aurora',
     'master': 'dev-master1.build.mozilla.org',
     'ports' : [9041],
     'platform_vars': {
