@@ -5,24 +5,39 @@ merge = diff
 [diff]
 git = 1
 unified = 8
-showfunc=True
+showfunc = True
 
 [defaults]
-diff=-p -U 8 
-qdiff=-p -U 8 
-qnew=-U
+diff = -p -U 8
+qdiff = -p -U 8
+qnew = -U
 
 [extensions]
-mq =
-transplant=
+mq = 
+transplant = 
 hgext.graphlog = 
-hgext.mq =
-hgext.purge=
-color =
-pager =
-rebase =
-share =
+hgext.mq = 
+hgext.purge = 
+color = 
+pager = 
+rebase = 
+share = 
+progress = 
+histedit = 
+bzexport = /home/armenzg/.mozbuild/version-control-tools/hgext/bzexport
+reviewboard = /home/armenzg/.mozbuild/version-control-tools/hgext/reviewboard/client.py
+bzpost = /home/armenzg/.mozbuild/version-control-tools/hgext/bzpost
+firefoxtree = /home/armenzg/.mozbuild/version-control-tools/hgext/firefoxtree
+mqext = /home/armenzg/.mozbuild/mercurial/extensions/mqext
+qimportbz = /home/armenzg/.mozbuild/version-control-tools/hgext/qimportbz
 
 [pager]
 pager = LESS='FSRX' less
 attend = log, help, diff, grep
+[bugzilla]
+username = armenzg@mozilla.com
+password = fake 
+[hostfingerprints]
+bugzilla.mozilla.org = 47:13:a2:14:0c:46:45:53:12:0d:e5:36:16:a5:60:26:3e:da:3a:60
+bitbucket.org = 45:ad:ae:1a:cf:0e:73:47:06:07:e0:88:f5:cc:10:e5:fa:1c:f7:99
+hg.mozilla.org = af:27:b9:34:47:4e:e5:98:01:f6:83:2b:51:c9:aa:d8:df:fb:1a:27
