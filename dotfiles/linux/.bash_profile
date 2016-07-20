@@ -1,10 +1,4 @@
-export PATH=/opt:$PATH
-export PYTHONPATH=~/repos/tools/lib/python:~/repos:$PYTHONPATH
-
 export PEOPLE='people.mozilla.com:~/public_html/incoming'
-export DEV='dev-master01:~/moz/patches'
-# What is the purpose of this line?
-#export PROMPT_COMMAND='history -a; history -r'
 
 # Where did I get this code from?
 function parse_git_dirty {
@@ -28,7 +22,7 @@ function parse_hg_branch {
 parse_branch_repo() {
     {
     git_root=$(parse_git_branch)
-    if [[ $git_root != "" ]] 
+    if [[ $git_root != "" ]]
     then
         echo -n "git:$git_root "
     fi
